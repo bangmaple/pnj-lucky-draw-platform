@@ -1,0 +1,39 @@
+<ng-template [ngIf]="_isLuckyUsersDataTableIsProcessing">
+    <div class="p-ml-4">
+        <p-progressSpinner [style]="{width: '40px', height: '40px'}" styleClass="custom-spinner" strokeWidth="8"
+                           animationDuration=".5s"></p-progressSpinner>
+        <b>Vui lòng chờ...</b>
+    </div>
+</ng-template>
+<p-card class="p-shadow-24 p-mr-3 p-ml-3" *ngIf="(getTemporaryLuckyUsers() | async) as luckyUsers">
+    <div *ngIf="luckyUsers.length === 0" class="p-d-flex p-jc-center">
+        <p style="font-weight: bold; font-size: 1.25rem; color: #FFA62B">
+            Danh sách người tham dự rỗng! Hãy tải lên danh sách!
+        </p>
+    </div>
+    <p-table *ngIf="luckyUsers.length > 0" class="p-datatable-sm" [value]="luckyUsers"
+             autoLayout scrollable="true" scrollHeight="200px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 10%">STT</th>
+                <th style="width: 20%">Số may mắn</th>
+                <th style="width: 30%">Tên người tham dự</th>
+                <th>Tên cửa hàng</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+            <tr>
+                <td style="width: 10%">{{rowIndex + 1}}</td>
+                <td style="width: 20%">
+                    {{user.luckyNumber}}
+                </td>
+                <td style="width: 30%">
+                    {{user.name}}
+                </td>
+                <td>
+                    {{user.store}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

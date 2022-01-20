@@ -1,0 +1,48 @@
+
+<div class="p-field p-lg-6 p-md-6">
+                <span class="p-float-label p-input-icon-left">
+                    <i class="pi pi-bookmark"></i>
+                    <input type="text" id="listName"
+                           pInputText [(ngModel)]="luckyUserListName">
+                    <label for="listName">Tên danh sách</label>
+                </span>
+</div>
+<div class="p-lg-6 p-md-6">
+    <button (click)="generateRandomLuckyUsersListName()"
+            pRipple pButton icon="pi pi-replay"
+            pTooltip="Tạo ngẫu nhiên tên danh sách"
+            tooltipZIndex="99999"
+            tooltipPosition="top"
+            class="p-button-info p-button-outlined p-mr-2"></button>
+    <button (click)="downloadSampleCSVFile()"
+            pRipple pButton icon="pi pi-download"
+            pTooltip="Tải xuống danh sách mẫu"
+            tooltipZIndex="99999"
+            tooltipPosition="top"
+            class="p-button-success p-button-outlined p-mr-2"></button>
+    <button (click)="uploadLuckyUsers()"
+            pButton pRipple icon="pi pi-upload"
+            pTooltip="Tải lên danh sách"
+            tooltipZIndex="99999"
+            tooltipPosition="top"
+            class="p-button-success p-button-outlined p-mr-2"></button>
+    <button pRipple pButton icon="pi pi-book"
+            class="p-button-raised p-button-help p-button-outlined p-mr-2"
+            pTooltip="Hướng dẫn sử dụng"
+            tooltipZIndex="99999"
+            tooltipPosition="top"></button>
+    <button *ngIf="isLuckyUsersDataAppendable"
+            (click)="isLuckyUsersDataAppendable = false"
+            pRipple pButton icon="pi pi-times"
+            pTooltip="Không cho phép chèn thêm dữ liệu"
+            tooltipZIndex="99999"
+            tooltipPosition="top"
+            class="p-button-raised p-button-danger p-button-outlined"></button>
+    <button *ngIf="!isLuckyUsersDataAppendable"
+            (click)="isLuckyUsersDataAppendable = true"
+            pRipple pButton icon="pi pi-check"
+            pTooltip="Cho phép chèn thêm dữ liệu"
+            tooltipZIndex="99999"
+            tooltipPosition="top"
+            class="p-button-raised p-button-success p-button-outlined"></button>
+</div>

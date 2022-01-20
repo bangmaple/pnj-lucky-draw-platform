@@ -1,0 +1,47 @@
+<div class="p-d-flex p-jc-center">
+    <ng-template [ngIf]="!startComponent.hasAnimationStarted">
+        <span class="p-mt-3">
+        <button (click)="startComponent.start()" type="button" pButton
+                class="button-size p-button-warning p-button-raised p-button-lg">
+            <i class="pi pi-play p-mr-2"></i>BẮT ĐẦU
+        </button>
+        <button (click)="startComponent.navigateHome()" type="button" pButton
+                class="button-size p-ml-3 p-button-danger p-button-raised p-button-lg">
+            <i class="pi pi-sign-out p-mr-2"></i>QUAY LẠI
+        </button>
+        </span>
+    </ng-template>
+    <div class="row" *ngIf="startComponent.hasAnimationStarted">
+        <div *ngIf="startComponent.hasAnimationCompleted">
+            <div>
+                <div class="p-jc-center">
+                    <h1 class="congrats-msg card-title">
+                        <span *ngIf="startComponent.name && startComponent.store">
+                            Chúc mừng
+                        </span>
+                    </h1>
+                    <h1 class="congrats-msg card-title" style="margin-top: -25px;">
+                        <span *ngIf="startComponent.name && startComponent.store">
+                            {{ startComponent.name }}
+                        </span>
+                    </h1>
+                    <h1 class="congrats-msg card-title" style="margin-top: -25px;">
+                        <span *ngIf="startComponent.name && startComponent.store">
+                            {{ startComponent.store }}
+                        </span>
+                    </h1>
+                </div>
+                <div class="p-d-flex p-jc-center">
+                    <button (click)="startComponent.continueDrawing()" type="button" pButton
+                            class="button-size p-button-help p-button-raised p-button-lg p-mr-3">
+                        <i class="pi pi-refresh p-mr-2"></i>TIẾP TỤC QUAY
+                    </button>
+                    <button (click)="startComponent.navigateHome()" type="button" pButton
+                            class="button-size p-button-success p-button-raised p-button-lg">
+                        <i class="pi pi-times p-mr-2"></i>KẾT THÚC
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

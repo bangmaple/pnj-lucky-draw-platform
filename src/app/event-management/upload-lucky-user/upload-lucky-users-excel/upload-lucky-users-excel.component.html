@@ -1,0 +1,27 @@
+<input #csvReader (change)="uploadFileListener($event)" type="file" style="display: none;" id="btnFileUpload"/>
+
+<p-dialog [(visible)]="_isCreatingLuckyUsersExcelDisplayed"
+          [modal]="true" [style]="{width: '65vw'}" [breakpoints]="[{'960px': '55vw'}, {'640px': '45vw'}]"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <b style="font-size: 1.5rem;">
+            <i class="pi pi-cloud-upload p-mr-2 font-title"></i>
+            Tải lên danh sách người tham dự</b>
+    </ng-template>
+    <div class="p-fluid p-grid">
+        <app-upload-lucky-users-excel-header class="p-d-flex p-mt-4 p-col-12"></app-upload-lucky-users-excel-header>
+        <app-upload-lucky-users-excel-body [ngStyle]="{'width': '100%'}"></app-upload-lucky-users-excel-body>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="p-d-flex p-jc-end">
+                <button pRipple pButton icon="pi pi-times" class="p-button-raised p-button-danger"
+                          label="Huỷ bỏ"
+                          (click)="closeUploadLuckyUsersExcelModal()"></button>
+
+                <button pButton pRipple icon="pi pi-check"
+                        class="p-button-raised p-button-success"
+                        (click)="validatingThenPerformCreatingLuckyUsersList()" label="Đồng ý"></button>
+        </div>
+    </ng-template>
+</p-dialog>

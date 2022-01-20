@@ -1,0 +1,22 @@
+<p style="font-size: 1.75rem;" class="p-text-bold p-ml-4">
+    <i style="font-size: 1.75rem;" class="pi pi-calendar p-mr-3"></i>QUẢN LÍ SỰ KIỆN
+</p>
+<button pRipple (click)="goToEventsQueueList()" type="button" pButton class="p-button-raised p-mt-2 p-mb-4 p-ml-4 p-shadow-24">
+    <p class="font-title"><i class="pi pi-forward p-mr-2 font-title"></i>Bắt đầu sự kiện</p>
+</button>
+<button (click)="createAnEventModal()" pRipple pButton type="button"
+        class="p-button-raised p-mt-2 p-mb-4 p-ml-4 p-shadow-24">
+    <p class="font-title"><i class="pi pi-plus-circle p-mr-2 font-title"></i>Tạo sự kiện</p>
+</button><br/>
+<p style="font-size: 1.75rem;" class="p-text-bold p-ml-4">
+    <i style="font-size: 1.75rem;" class="pi pi-users p-mr-3"></i>QUẢN LÍ NGƯỜI THAM DỰ</p>
+<button (click)="showCreatingLuckyUsersListModal()" pRipple pButton type="button"
+        class="p-button-raised p-mt-2 p-mb-4 p-ml-4 p-shadow-24">
+    <p class="font-title">
+        <i class="pi pi-user-plus p-mr-2 font-title"></i>
+        Tạo danh sách người tham dự</p>
+</button>
+<app-upload-lucky-user></app-upload-lucky-user>
+<app-creating-event></app-creating-event>
+<app-event-queue></app-event-queue>
+

@@ -1,0 +1,33 @@
+<p-toast [baseZIndex]="9999999"></p-toast>
+<p-confirmDialog [baseZIndex]="9999999"></p-confirmDialog>
+<p-dialog [(visible)]="_isUploadingUserModalDisplay"
+          [modal]="true" [style]="{width: '55vw'}"
+          [breakpoints]="[{'960px': '50vw'}, {'640px': '55vw'}]"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <p style="font-size: 1.5rem; font-weight: bold">
+            <i style="font-size: 1.5rem;" class="pi pi-user-plus p-mr-2"></i>
+            Tạo mới danh sách người tham dự sự kiện
+        </p>
+    </ng-template>
+
+    <div class="p-d-flex p-jc-center">
+        <button (click)="showExcelCreatingLuckyUsersListModal()"
+                pRipple pButton class="p-button-warning p-button-raised p-mr-2">
+            <p style="font-size: 1.15rem;">
+                <i style="font-size: 1.15rem; font-weight: bold;"
+                   class="pi pi-table p-mr-2"></i><b>Tải lên thông qua tệp Excel</b>
+            </p>
+        </button>
+        <button (click)="showManuallyCreatingLuckyUsersListModal()"
+                pRipple pButton class="p-button-warning p-button-raised p-ml-2">
+            <p style="font-size: 1.15rem;">
+                <i style="font-size: 1.15rem; font-weight: bold;"
+                   class="pi pi-tablet p-mr-2"></i><b>Tạo danh sách thủ công</b>
+            </p>
+        </button>
+    </div>
+</p-dialog>
+<app-upload-lucky-users-table></app-upload-lucky-users-table>
+<app-upload-lucky-users-excel></app-upload-lucky-users-excel>

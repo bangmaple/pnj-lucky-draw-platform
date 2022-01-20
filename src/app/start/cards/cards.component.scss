@@ -1,0 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700);
+$base: 50px;
+.card {
+    font-family: Lora, serif;
+    font-weight: 700;
+    float: left;
+    width: $base * 3;
+    height: $base * 4;
+    background: #dbc8c8;
+    border-radius: $base * 0.1;
+    box-shadow: 2px 2px 6px rgba(black, 0.2),
+    inset 0 0 0 1px rgba(black, 0.2);
+    position: relative;
+    font-size: 4.5rem;
+    color: #543b3b;
+}

@@ -1,0 +1,19 @@
+<p-menubar [model]="items">
+    <div>
+        <button type="button" pButton pRipple
+                icon="pi pi-info"
+                (click)="showInformation()"
+                class="p-mr-4 p-button-info"></button>
+    </div>
+</p-menubar>
+
+<p-dialog header="About"
+          [(visible)]="displayCreditModal" [modal]="true" [style]="{width: '40vw'}"
+          [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+    <div class="p-jc-center">
+        Ứng dụng Lucky Draw được thiết kế và lập trình bởi BangMaple.<br/><br/>
+        Để biết thêm thông tin liên lạc, truy cập: <a style="text-decoration: white;" href="https://facebook.com/BangMaple">https://facebook.com/BangMaple</a><br/>
+        -----------<br/>
+        Ứng dụng này được xây dựng trên nền tảng JavaScript Framework Angular và Firebase 🔥.<br/>
+    </div>
+</p-dialog>

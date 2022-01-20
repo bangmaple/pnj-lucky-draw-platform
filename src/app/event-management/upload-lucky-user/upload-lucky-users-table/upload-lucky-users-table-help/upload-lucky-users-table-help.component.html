@@ -1,0 +1,21 @@
+<p-dialog [(visible)]="_isUploadLuckyUserTableHelpPageDisplayed"
+          [modal]="true" [style]="{width: '60vw'}"
+          [breakpoints]="[{'960px': '55vw'}, {'640px': '50vw'}]"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <p style="font-size: 1.5rem; font-weight: bold">
+            <i style="font-size: 1.5rem;" class="pi pi-book p-mr-2"></i>Hướng dẫn sử dụng
+        </p>
+    </ng-template>
+    <div class="p-fluid p-grid p-m-4">
+        <p>Xin chào các bạn đến với này</p>
+    </div>
+    <ng-template pTemplate="footer">
+        <div class="p-d-flex p-jc-end">
+            <button (click)="closeThisModal()" pButton pRipple class="p-button-raised">
+                <i class="pi pi-times p-mr-2"></i><b>Thoát cửa sổ này</b>
+            </button>
+        </div>
+    </ng-template>
+</p-dialog>

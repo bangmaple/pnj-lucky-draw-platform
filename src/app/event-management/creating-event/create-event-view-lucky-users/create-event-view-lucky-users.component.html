@@ -1,0 +1,37 @@
+<p-dialog [(visible)]="_isViewLuckyUsersModalDisplayed"
+          [modal]="true" [style]="{width: '55vw'}" [breakpoints]="[{'960px': '30vw'}, {'640px': '55vw'}]"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <b style="font-size: 1.5rem;">
+            <i class="pi pi-users p-mr-2" style="font-size: 1.5rem; font-weight: bold"></i>
+            Xem danh sách người tham dự</b>
+    </ng-template>
+    <p-card class="p-shadow-24 p-mr-3 p-ml-3" [ngStyle]="{'width': '100%'}" *ngIf="(luckyUsers$ | async) as luckyUsers">
+        <p-table *ngIf="luckyUsers.luckyUsers.length > 0" class="p-datatable-sm" [value]="luckyUsers.luckyUsers"
+                 autoLayout scrollable="true" scrollHeight="200px">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 10%">STT</th>
+                    <th style="width: 20%">Số may mắn</th>
+                    <th style="width: 30%">Tên người tham dự</th>
+                    <th>Tên cửa hàng</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+                <tr>
+                    <td style="width: 10%">{{rowIndex + 1}}</td>
+                    <td style="width: 20%">
+                        {{user.luckyNumber}}
+                    </td>
+                    <td style="width: 30%">
+                        {{user.name}}
+                    </td>
+                    <td>
+                        {{user.store}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-card>
+</p-dialog>
